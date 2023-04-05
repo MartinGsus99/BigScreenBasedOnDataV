@@ -30,22 +30,25 @@ export default {
                     itemStyle: {
                         normal: {
                             // 设置正常状态下的样式
-                            areaColor: '#a5e7f0', // 区域的填充颜色
+                            areaColor: '#A5D7E8', // 区域的填充颜色
                             borderColor: '#fff', // 区域的边框颜色
                             borderWidth: 1 // 区域的边框宽度
                         },
                         emphasis: {
                             // 设置鼠标悬浮时的样式
-                            areaColor: '#516b91', // 区域的填充颜色
-                            borderColor: '#333', // 区域的边框颜色
-                            borderWidth: 1 // 区域的边框宽度
+                            areaColor: '#537FE7', // 区域的填充颜色
+                            borderColor: '#fff', // 区域的边框颜色
+                            borderWidth: 3 // 区域的边框宽度
                         }
                     },
                     label: {
                         normal: {
-                            color: '#000000',
+                            color: '#3E54AC',
                             show: true,
                         },
+                        emphasis:{
+                            color:'#fff',
+                        }
                     },
                 },
                 title: {
@@ -74,6 +77,14 @@ export default {
                         {
                             name: 'IP3',
                             value: [108.85412, 36.757975],
+                        },
+                        {
+                            name: 'IP5',
+                            value: [108.85412, 35.757975],
+                        },
+                        {
+                            name: 'IP6',
+                            value: [108.105412, 33.857975],
                         },
                     ],
                 }, ],

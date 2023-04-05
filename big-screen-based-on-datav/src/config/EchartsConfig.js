@@ -7,13 +7,13 @@ const colors = [
     "#4682b4"
 ]
 
-var sortedData=function(data) {
+var sortedData = function (data) {
     return data.sort(function (a, b) {
-        return a-b; // 按照从大到小的顺序排列
+        return a - b; // 按照从大到小的顺序排列
     });
 }
 
-export const webOption= {
+export const webOption = {
     title: {
         show: true,
         text: 'Web应用',
@@ -21,22 +21,27 @@ export const webOption= {
             color: '#fff',
         }
     },
-    legend: {
-        type: 'scroll',
-        orient: 'vertical',
-        right: '3%',
-        top: '20%',
-        textStyle: {
-            color: '#fff',
-        }
+
+    //设置标签样式
+    label: {
+        show: false,
+        position: 'right',
+        color: '#fff',
+    },
+    labelLine: {
+        show: false
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b} : {d}%'
     },
     series: [{
         name: 'Web',
         type: 'pie',
-        radius: ['40%', '45%'],
-        avoidLabelOverlap: false,
+        radius: ['40%', '48%'],
+        avoidLabelOverlap: true,
         label: {
-            show: false,
+            show: true,
             position: 'right'
         },
         emphasis: {
@@ -49,49 +54,47 @@ export const webOption= {
                 }
             }
         },
-        labelLine: {
-            show: false
-        },
+
         data: [{
-                value: 9988,
-                name: 'WordPress',
-                itemStyle: {
-                    color: colors[0],
-                }
-            },
-            {
-                value: 1288,
-                name: 'LiteSpeed',
-                itemStyle: {
-                    color: colors[1],
-                }
-            },
-            {
-                value: 580,
-                name: 'phpMyAdmin',
-                itemStyle: {
-                    color: colors[2],
-                }
-            },
-            {
-                value: 484,
-                name: 'Shopify',
-                itemStyle: {
-                    color: colors[3],
-                }
-            },
-            {
-                value: 300,
-                name: 'DedeCMS',
-                itemStyle: {
-                    color: colors[4],
-                }
+            value: 9988,
+            name: 'WordPress',
+            itemStyle: {
+                color: colors[0],
             }
+        },
+        {
+            value: 1288,
+            name: 'LiteSpeed',
+            itemStyle: {
+                color: colors[1],
+            }
+        },
+        {
+            value: 580,
+            name: 'phpMyAdmin',
+            itemStyle: {
+                color: colors[2],
+            }
+        },
+        {
+            value: 484,
+            name: 'Shopify',
+            itemStyle: {
+                color: colors[3],
+            }
+        },
+        {
+            value: 300,
+            name: 'DedeCMS',
+            itemStyle: {
+                color: colors[4],
+            }
+        }
         ]
     }]
 };
 
-export const webFrameOption= {
+export const webFrameOption = {
     title: {
         show: true,
         text: 'Web框架',
@@ -115,11 +118,24 @@ export const webFrameOption= {
             color: "#fff"
         }
     },
+    //设置标签样式
+    label: {
+        show: false,
+        position: 'center',
+        color: '#fff',
+    },
+    labelLine: {
+        show: false
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b} : {d}%'
+    },
     series: [{
         name: 'Web',
         type: 'pie',
-        radius: ['40%', '45%'],
-        avoidLabelOverlap: false,
+        radius: ['40%', '48%'],
+        avoidLabelOverlap: true,
         label: {
             show: true,
             position: 'right',
@@ -136,45 +152,45 @@ export const webFrameOption= {
             }
         },
         data: [{
-                value: 4586,
-                name: 'ASP.NET MVC',
-                itemStyle: {
-                    color: colors[0],
-                }
-            },
-            {
-                value: 2235,
-                name: 'Codelgniter',
-                itemStyle: {
-                    color: colors[1],
-                }
-            },
-            {
-                value: 1203,
-                name: 'ThinkPhp',
-                itemStyle: {
-                    color: colors[2],
-                }
-            },
-            {
-                value: 1108,
-                name: 'Apache Coyote',
-                itemStyle: {
-                    color: colors[3],
-                }
-            },
-            {
-                value: 300,
-                name: 'ExpressJS',
-                itemStyle: {
-                    color: colors[4],
-                }
+            value: 4586,
+            name: 'ASP.NET MVC',
+            itemStyle: {
+                color: colors[0],
             }
+        },
+        {
+            value: 2235,
+            name: 'Codelgniter',
+            itemStyle: {
+                color: colors[1],
+            }
+        },
+        {
+            value: 1203,
+            name: 'ThinkPhp',
+            itemStyle: {
+                color: colors[2],
+            }
+        },
+        {
+            value: 1108,
+            name: 'Apache Coyote',
+            itemStyle: {
+                color: colors[3],
+            }
+        },
+        {
+            value: 300,
+            name: 'ExpressJS',
+            itemStyle: {
+                color: colors[4],
+            }
+        }
         ]
     }]
 };
 
-export const webContainerOption= {
+export const webContainerOption = {
     title: {
         text: 'Web 容器',
         textStyle: {
@@ -198,9 +214,13 @@ export const webContainerOption= {
         },
 
     },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{c}个.'
+    },
     yAxis: {
         type: 'category',
-        data: ['Nginx', 'Apache Httpd', 'MiscroSoft IIS Httpd', 'LiteSpeed1', 'Tengine', 'LiteSpeeds', 'Tengine3', 'LiteSpeed3', ],
+        data: ['Nginx', 'Apache Httpd', 'MiscroSoft IIS Httpd', 'LiteSpeed1', 'Tengine', 'LiteSpeeds', 'Tengine3', 'LiteSpeed3',],
         axisLabel: {
             show: false // 取消 y 轴标签显示
         },
@@ -213,7 +233,7 @@ export const webContainerOption= {
 
     },
     series: [{
-        data:sortedData([8110, 9312, 9011, 9134, 1190, 2156, 12385, 9956]),
+        data: sortedData([8110, 9312, 9011, 9134, 1190, 2156, 12385, 9956]),
         type: 'bar',
         barMaxWidth: '30%',
         itemStyle: {
@@ -240,7 +260,7 @@ export const webContainerOption= {
     }],
 };
 
-export const webEquipmentOption= {
+export const webEquipmentOption = {
     title: {
         show: true,
         text: '设备',
@@ -248,22 +268,27 @@ export const webEquipmentOption= {
             color: '#fff',
         }
     },
-    legend: {
-        type: 'scroll',
-        orient: 'vertical',
-        right: '0%',
-        top: '15%',
-        textStyle: {
-            color: '#fff',
-        }
+ 
+    //设置标签样式
+    label: {
+        show: false,
+        position: 'center',
+        color: '#fff',
+    },
+    labelLine: {
+        show: false
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b} : {d}%'
     },
     series: [{
         name: 'Web',
         type: 'pie',
-        radius: ['40%', '45%'],
-        avoidLabelOverlap: false,
+        radius: ['40%', '48%'],
+        avoidLabelOverlap: true,
         label: {
-            show: false,
+            show: true,
             position: 'right'
         },
         emphasis: {
@@ -280,45 +305,45 @@ export const webEquipmentOption= {
             show: false
         },
         data: [{
-                value: 1048,
-                name: 'Unknown',
-                itemStyle: {
-                    color: colors[0],
-                }
-            },
-            {
-                value: 735,
-                name: 'Broadband Router',
-                itemStyle: {
-                    color: colors[1],
-                }
-            },
-            {
-                value: 580,
-                name: 'Webcam',
-                itemStyle: {
-                    color: colors[2],
-                }
-            },
-            {
-                value: 484,
-                name: 'VoIP Adapter',
-                itemStyle: {
-                    color: colors[3],
-                }
-            },
-            {
-                value: 300,
-                name: 'WAP',
-                itemStyle: {
-                    color: colors[4],
-                }
+            value: 1048,
+            name: 'Unknown',
+            itemStyle: {
+                color: colors[0],
             }
+        },
+        {
+            value: 735,
+            name: 'Broadband Router',
+            itemStyle: {
+                color: colors[1],
+            }
+        },
+        {
+            value: 580,
+            name: 'Webcam',
+            itemStyle: {
+                color: colors[2],
+            }
+        },
+        {
+            value: 484,
+            name: 'VoIP Adapter',
+            itemStyle: {
+                color: colors[3],
+            }
+        },
+        {
+            value: 300,
+            name: 'WAP',
+            itemStyle: {
+                color: colors[4],
+            }
+        }
         ]
     }]
 };
 
-export const portOption={
+export const portOption = {
     title: {
         show: true,
         text: '端口',
@@ -332,9 +357,13 @@ export const portOption={
         bottom: '10%',
         containLabel: true
     },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{c}个.'
+    },
     xAxis: {
         type: 'category',
-        data: ['80', '7547', '443', '22', '21', ],
+        data: ['80', '7547', '443', '22', '21',],
         axisLabel: {
             color: '#fff'
         },
@@ -357,7 +386,7 @@ export const portOption={
 
     },
     series: [{
-        data:sortedData([34562356, 33562356, 45602356, 55562356, 34562356]),
+        data: sortedData([34562356, 33562356, 45602356, 55562356, 34562356]),
         type: 'bar',
         barMaxWidth: '30%',
         itemStyle: {
@@ -384,7 +413,7 @@ export const portOption={
     }]
 };
 
-export const pointOption={
+export const pointOption = {
     title: {
         show: true,
         text: '服务',
@@ -405,17 +434,17 @@ export const pointOption={
             show: true
         },
         data: [{
-                name: 'FTP',
-                x: 300,
-                y: 150,
-                value: 96546135
-            },
-            {
-                name: 'Unknown',
-                x: 500,
-                y: 300,
-                value: 71565936
-            },
+            name: 'FTP',
+            x: 300,
+            y: 150,
+            value: 96546135
+        },
+        {
+            name: 'Unknown',
+            x: 500,
+            y: 300,
+            value: 71565936
+        },
         ],
 
     }]

@@ -3,14 +3,14 @@
     <div class="left-container">
       <div id="web-application-chart" class="widget-container-left"></div>
       <div id="web-frame-chart" class="widget-container-left"></div>
-      <div id="web-polar-chart" class="widget-container-left-polar"></div>
+      <div id="web-polar-chart" class="widget-container-left"></div>
     </div>
 
     <div class="middle-container">
-      <div class="header-container">
+      <div class="mid-container">
         <staticBar :StaticData="StaticData" :timeShow="false"></staticBar>
       </div>
-      <div class="map-container">
+      <div class="mid-container">
         <MapCharts></MapCharts>
       </div>
     </div>
@@ -104,10 +104,9 @@ export default {
     };
   },
   mounted() {
-    
     window.addEventListener("resize", this.handleResize);
-     // 初始化获取窗口大小
-     this.getWindowSize()
+    // 初始化获取窗口大小
+    this.getWindowSize();
     this.generateWebChart();
     this.generateWebFrameChart();
     this.generateWebFramePolarChart();
@@ -135,8 +134,8 @@ export default {
     },
     getWindowSize() {
       // 获取窗口大小
-      this.windowWidth = window.innerWidth
-      this.windowHeight = window.innerHeight
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
     },
     refreshChart(chartName, option) {
       var chart = document.getElementById(chartName);
@@ -208,43 +207,58 @@ body {
   flex-direction: row;
   padding: 10px;
   background-color: #131124;
-}
-
-.middle-container {
-  width: 50%;
-  height: 100%;
-}
-
-.header-container {
-  height: 120px;
-  margin: 30px;
-}
-
-.map-container {
-  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 10px;
 }
 
 .left-container {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-}
-
-.right-container {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  height: 100%;
+  gap: 10px;
 }
 
 .widget-container-left {
-  flex-grow: 1;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
 }
 
 .widget-container-left-polar {
-  flex-grow: 2;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
 }
 
-.widget-container-right {
-  flex-grow: 1;
+.middle-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 3fr;
+  height: 100%;
+  gap: 10px;
 }
+
+.mid-container{
+  padding: 20px;
+  
+  font-size: 24px;
+}
+
+.right-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 100%;
+  gap: 10px;
+}
+
+.widget-container-right{
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
 </style>
