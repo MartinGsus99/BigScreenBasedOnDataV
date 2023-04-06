@@ -413,7 +413,7 @@ export const portOption = {
     }]
 };
 
-export const pointOption = {
+export const serviceOption = {
     title: {
         show: true,
         text: '服务',
@@ -426,7 +426,7 @@ export const pointOption = {
     animationEasingUpdate: 'quinticInOut',
     series: [{
         type: 'graph',
-        layout: 'circular',
+        layout: 'none',
         draggable: true,
         symbolSize: 50,
         roam: true,
@@ -436,12 +436,12 @@ export const pointOption = {
         data: [{
             name: 'FTP',
             x: 300,
-            y: 150,
+            y: 300,
             value: 96546135
         },
         {
             name: 'Unknown',
-            x: 500,
+            x: 400,
             y: 300,
             value: 71565936
         },

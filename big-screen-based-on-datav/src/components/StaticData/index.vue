@@ -97,4 +97,15 @@ export default {
     opacity: 0.70;
 }
 
+@media screen and (max-width: 1000px) {
+    .el-row{
+        grid-template-columns: 1fr;
+    }
+    .el-col {
+        margin-bottom: 10px;
+        grid-template-rows: 1fr;
+    }
+}
+    
+
 </style>

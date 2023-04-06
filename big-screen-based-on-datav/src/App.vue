@@ -8,7 +8,7 @@
 
     <div class="middle-container">
       <div class="mid-container">
-        <staticBar :StaticData="StaticData" :timeShow="false"></staticBar>
+        <staticBar v-show="showWebBar" :StaticData="StaticData" :timeShow="false"></staticBar>
       </div>
       <div class="mid-container">
         <MapCharts></MapCharts>
@@ -37,7 +37,7 @@ import {
   webContainerOption,
   webEquipmentOption,
   portOption,
-  pointOption,
+  serviceOption,
 } from "./config/EchartsConfig";
 
 export default {
@@ -101,6 +101,7 @@ export default {
         },
       ],
       charts: [],
+      showWebBar:true,
     };
   },
   mounted() {
@@ -128,6 +129,12 @@ export default {
   },
   methods: {
     handleResize() {
+      console.log('window resize');
+      console.log(this.windowWidth);
+      console.log(this.windowHeight);
+      if(this.windowWidth<=1000){
+          this.showWebBar=false;
+      }
       for (let i = 0; i < this.charts.length; i++) {
         this.charts[i].resize();
       }
@@ -187,7 +194,7 @@ export default {
       var myChart = this.$echarts.init(
         document.getElementById("web-point-chart")
       );
-      myChart.setOption(pointOption);
+      myChart.setOption(serviceOption);
       this.charts.push(myChart);
     },
   },
@@ -258,6 +265,31 @@ body {
   padding: 20px;
   font-weight: bold;
   font-size: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    overflow: auto;
+  }
+  .dashboard{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .left-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .middle-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .right-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
 }
 
 
